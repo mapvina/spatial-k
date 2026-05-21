@@ -1,0 +1,105 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+
+permissions:
+    contents: read
+
+jobs:
+    build:
+        strategy:
+            matrix:
+                include:
+                    # Run full build and most tests on ubuntu
+                    - runner: ubuntu-latest
+                      task: build
+                    # Run windows and macos native tests on those platforms
+                    - runner: windows-latest
+                      task: mingwX64Test
+                    - runner: macos-latest
+                      task: macosArm64Test
+
+        runs-on: ${{ matrix.runner }}
+        steps:
+            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+              with:
+                  fetch-depth: 0
+                  fetch-tags: true
+                  persist-credentials: false
+            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - run: ./gradlew version # TODO: remove this once we're confident in our config
+            - run: ./gradlew ${{ matrix.task }}
+            - if: ${{ matrix.task == 'build' }} # Kover only supports JVM
+              name: Generate coverage summary
+              run: |
+                  echo '## Coverage' >> $GITHUB_STEP_SUMMARY
+                  ./gradlew -q :koverLog | tee $GITHUB_STEP_SUMMARY
+
+    benchmark:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+              with:
+                  fetch-depth: 0
+                  fetch-tags: true
+                  persist-credentials: false
+            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - name: Run benchmark
+              run: |
+                  echo '## Benchmark' >> $GITHUB_STEP_SUMMARY
+                  ./gradlew -q benchmark -PbenchmarkWarmups=1 -PbenchmarkIterations=1 | tee $GITHUB_STEP_SUMMARY
+
+    build-docs:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+              with:
+                  fetch-depth: 0
+                  fetch-tags: true
+                  persist-credentials: false
+            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - run: ./gradlew :mkdocsBuild
+            - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+              with:
+                  path: build/mkdocs
+
+    check-format:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+              with:
+                  fetch-depth: 0
+                  fetch-tags: true
+                  persist-credentials: false
+            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - run: mise run check
+
+    check-integrity:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+              with:
+                  fetch-depth: 0
+                  fetch-tags: true
+                  persist-credentials: false
+            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - name: Verify gradle wrapper
+              run: |
+                  GRADLE_VERSION=$(grep distributionUrl gradle/wrapper/gradle-wrapper.properties \
+                    | sed 's/.*gradle-\(.*\)-bin\.zip.*/\1/')
+                  mise x "gradle@$GRADLE_VERSION" -- gradle wrapper --gradle-version "$GRADLE_VERSION"
+                  git diff --exit-code gradle/wrapper/ gradlew gradlew.bat
+            - name: Verify yarn lockfile integrity
+              env:
+                  YARN_ENABLE_HARDENED_MODE: "1"
+              run: ./gradlew kotlinNpmInstall
+
+    # stub to use as a "required" check on github
+    all-good:
+        needs: [build, check-format, build-docs, benchmark, check-integrity]
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo 'All checks passed!'

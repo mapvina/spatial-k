@@ -1,0 +1,39 @@
+@file:JvmName("Measurement")
+@file:JvmMultifileClass
+
+package com.mapvina.spatialk.turf.measurement
+
+import kotlin.jvm.JvmMultifileClass
+import kotlin.jvm.JvmName
+import com.mapvina.spatialk.geojson.BoundingBox
+import com.mapvina.spatialk.geojson.Position
+
+/**
+ * Takes a bounding box and calculates the minimum square bounding box that would contain the input.
+ *
+ * @return A square [BoundingBox] surrounding the input.
+ */
+public fun BoundingBox.square(): BoundingBox {
+    val (east, north) = northeast
+    val (west, south) = southwest
+
+    val horizontalDistance = distance(Position(west, south), Position(east, south))
+    val verticalDistance = distance(Position(west, south), Position(west, north))
+    return if (horizontalDistance >= verticalDistance) {
+        val verticalMidpoint = (south + north) / 2
+        BoundingBox(
+            west = west,
+            south = verticalMidpoint - (east - west) / 2,
+            east = east,
+            north = verticalMidpoint + (east - west) / 2,
+        )
+    } else {
+        val horizontalMidpoint = (west + east) / 2
+        BoundingBox(
+            west = horizontalMidpoint - (north - south) / 2,
+            south = south,
+            east = horizontalMidpoint + (north - south) / 2,
+            north = north,
+        )
+    }
+}

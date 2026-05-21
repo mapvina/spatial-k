@@ -1,0 +1,56 @@
+package com.mapvina.spatialk.geojson.dsl
+
+import com.mapvina.spatialk.geojson.BoundingBox
+import com.mapvina.spatialk.geojson.MultiPoint
+import com.mapvina.spatialk.geojson.Point
+import com.mapvina.spatialk.geojson.Position
+
+/**
+ * Builder for constructing [MultiPoint] objects using a DSL.
+ *
+ * @property bbox An optional [BoundingBox] for this [MultiPoint].
+ * @see MultiPoint
+ * @see buildMultiPoint
+ * @see addPoint
+ */
+@GeoJsonDsl
+public class MultiPointBuilder {
+    public var bbox: BoundingBox? = null
+    private val points: MutableList<Position> = mutableListOf()
+
+    /**
+     * Adds a [Point] to this [MultiPoint].
+     *
+     * @param longitude The longitude coordinate.
+     * @param latitude The latitude coordinate.
+     * @param altitude The optional altitude coordinate.
+     */
+    public fun add(longitude: Double, latitude: Double, altitude: Double? = null) {
+        points.add(Position(longitude, latitude, altitude))
+    }
+
+    /**
+     * Adds a [Point] to this [MultiPoint].
+     *
+     * @param position The [Position] to add.
+     */
+    public fun add(position: Position) {
+        points.add(position)
+    }
+
+    /**
+     * Adds a [Point] to this [MultiPoint].
+     *
+     * @param point The [Point] whose coordinates will be added.
+     */
+    public fun add(point: Point) {
+        points.add(point.coordinates)
+    }
+
+    /**
+     * Builds the [MultiPoint] from the configured values.
+     *
+     * @return The constructed [MultiPoint].
+     */
+    public fun build(): MultiPoint = MultiPoint(points, bbox)
+}
