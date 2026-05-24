@@ -4,7 +4,6 @@ import ru.vyarus.gradle.plugin.mkdocs.task.MkdocsTask
 plugins {
     id("org.jetbrains.kotlinx.kover")
     id("org.jetbrains.dokka")
-    id("semver")
     id("ru.vyarus.mkdocs-build")
 }
 
@@ -60,3 +59,8 @@ dependencies {
     dokka(project(":polyline-encoding"))
     kover(project(":polyline-encoding"))
 }
+
+allprojects {
+    version = System.getenv("VERSION") ?: "1.0.0"
+}
+

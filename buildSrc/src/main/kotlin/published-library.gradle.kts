@@ -6,11 +6,11 @@ plugins {
     id("org.jetbrains.dokka")
     id("com.vanniktech.maven.publish")
     id("org.jetbrains.kotlinx.kover")
-    id("semver")
     id("dev.detekt")
 }
 
-group = "com.mapvina.spatialk"
+group = "io.github.mapvina.spatialk"
+version = System.getenv("VERSION") ?: "1.0.0"
 
 kotlin {
     explicitApi()
@@ -81,5 +81,15 @@ mavenPublishing {
                 name = "MapVina"
             }
         }
+    }
+}
+
+val privateKeyFile = file("/Volumes/DATA/MapVina/private-key.asc")
+if (privateKeyFile.exists()) {
+    val privateKey = privateKeyFile.readText()
+    val password = project.findProperty("signing.password") as String? ?: System.getenv("SIGNING_PASSWORD")
+    val keyId = project.findProperty("signing.keyId") as String? ?: "8B10EF76"
+    extensions.configure<SigningExtension> {
+        useInMemoryPgpKeys(keyId, privateKey, password)
     }
 }
