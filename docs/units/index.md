@@ -1,10 +1,10 @@
 # Units
 
 The `units` module contains utilities for working with units of measure, like
-[Length](../api/units/com.mapvina.spatialk.units/-length/index.html),
-[Area](../api/units/com.mapvina.spatialk.units/-area/index.html),
-[Rotation](../api/units/com.mapvina.spatialk.units/-rotation/index.html), and
-[Bearing](../api/units/com.mapvina.spatialk.units/-bearing/index.html).
+[Length](../api/units/io.github.mapvina.spatialk.units/-length/index.html),
+[Area](../api/units/io.github.mapvina.spatialk.units/-area/index.html),
+[Rotation](../api/units/io.github.mapvina.spatialk.units/-rotation/index.html), and
+[Bearing](../api/units/io.github.mapvina.spatialk.units/-bearing/index.html).
 
 Details can be found in the [API reference](../api/units/index.html).
 
@@ -15,7 +15,7 @@ Details can be found in the [API reference](../api/units/index.html).
     ```kotlin
     commonMain {
         dependencies {
-            implementation("com.mapvina.spatialk:units:{{ gradle.project_version }}")
+            implementation("io.github.mapvina.spatialk:units:{{ gradle.project_version }}")
         }
     }
     ```
@@ -24,7 +24,7 @@ Details can be found in the [API reference](../api/units/index.html).
 
     ```kotlin
     dependencies {
-        implementation("com.mapvina.spatialk:units-jvm:{{ gradle.project_version }}")
+        implementation("io.github.mapvina.spatialk:units-jvm:{{ gradle.project_version }}")
     }
     ```
 
@@ -33,19 +33,19 @@ Details can be found in the [API reference](../api/units/index.html).
 In Kotlin, `Length`, `Area`, and `Rotation` are type-safe value classes wrapping a `Double`. They
 can be converted to and from raw `Double` values using the provided unit accessors.
 
-In Java, use the `convert` helper from `com.mapvina.spatialk.units.extensions.Utils` to convert
+In Java, use the `convert` helper from `io.github.mapvina.spatialk.units.extensions.Utils` to convert
 between units.
 
 === "Kotlin"
 
     ```kotlin
-    --8<-- "units/src/commonTest/kotlin/org/mapvina/spatialk/units/KotlinDocsTest.kt:conversion"
+    --8<-- "units/src/commonTest/kotlin/io/github/mapvina/spatialk/units/KotlinDocsTest.kt:conversion"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "units/src/jvmTest/java/org/mapvina/spatialk/units/JavaDocsTest.java:conversion"
+    --8<-- "units/src/jvmTest/java/io/github/mapvina/spatialk/units/JavaDocsTest.java:conversion"
     ```
 
 ## Arithmetic
@@ -56,7 +56,7 @@ converting between scalars, lengths, and areas as needed.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "units/src/commonTest/kotlin/org/mapvina/spatialk/units/KotlinDocsTest.kt:arithmetic"
+    --8<-- "units/src/commonTest/kotlin/io/github/mapvina/spatialk/units/KotlinDocsTest.kt:arithmetic"
     ```
 
 ## Bearings and Rotations
@@ -70,7 +70,7 @@ degrees relative to north.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "units/src/commonTest/kotlin/org/mapvina/spatialk/units/KotlinDocsTest.kt:bearings"
+    --8<-- "units/src/commonTest/kotlin/io/github/mapvina/spatialk/units/KotlinDocsTest.kt:bearings"
     ```
 
 ## Custom units
@@ -81,11 +81,11 @@ custom units as needed.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "units/src/commonTest/kotlin/org/mapvina/spatialk/units/KotlinDocsTest.kt:customUnits"
+    --8<-- "units/src/commonTest/kotlin/io/github/mapvina/spatialk/units/KotlinDocsTest.kt:customUnits"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "units/src/jvmTest/java/org/mapvina/spatialk/units/JavaDocsTest.java:customUnits"
+    --8<-- "units/src/jvmTest/java/io/github/mapvina/spatialk/units/JavaDocsTest.java:customUnits"
     ```

@@ -1,0 +1,119 @@
+@file:JvmName("Miscellaneous")
+@file:JvmMultifileClass
+
+package io.github.mapvina.spatialk.turf.misc
+
+import kotlin.jvm.JvmMultifileClass
+import kotlin.jvm.JvmName
+import kotlin.jvm.JvmOverloads
+import kotlin.jvm.JvmSynthetic
+import io.github.mapvina.spatialk.geojson.LineString
+import io.github.mapvina.spatialk.geojson.Point
+import io.github.mapvina.spatialk.geojson.Position
+import io.github.mapvina.spatialk.turf.measurement.bearingTo
+import io.github.mapvina.spatialk.turf.measurement.distance
+import io.github.mapvina.spatialk.turf.measurement.offset
+import io.github.mapvina.spatialk.units.International.Meters
+import io.github.mapvina.spatialk.units.Length
+import io.github.mapvina.spatialk.units.LengthUnit
+import io.github.mapvina.spatialk.units.extensions.toLength
+
+/**
+ * Takes a [LineString], a start and a stop [Position] and returns a subsection of the line between
+ * those points. The start and stop points do not need to fall exactly on the line.
+ *
+ * @param start Start position
+ * @param stop Stop position
+ * @return The sliced subsection of the line
+ */
+public fun LineString.slice(start: Position, stop: Position): LineString {
+    val startVertex = this.nearestPointTo(start)
+    val stopVertex = this.nearestPointTo(stop)
+
+    val (startPos, endPos) =
+        if (startVertex.properties.index <= stopVertex.properties.index) startVertex to stopVertex
+        else stopVertex to startVertex
+
+    val positions = mutableListOf(startPos.geometry.coordinates)
+    for (i in startPos.properties.index + 1 until endPos.properties.index + 1) {
+        positions.add(coordinates[i])
+    }
+    positions.add(endPos.geometry.coordinates)
+
+    return LineString(positions)
+}
+
+/**
+ * Takes a [LineString], a start and a stop [Point] and returns a subsection of the line between
+ * those points. The start and stop points do not need to fall exactly on the line.
+ *
+ * @param start Start point
+ * @param stop Stop point
+ * @return The sliced subsection of the line
+ */
+public fun LineString.slice(start: Point, stop: Point): LineString =
+    this.slice(start.coordinates, stop.coordinates)
+
+/**
+ * Takes a [LineString] and a specified distance along the line to a [start] and [stop] [Position],
+ * and returns a subsection of the line in-between those points.
+ */
+@JvmSynthetic
+public fun LineString.slice(start: Length, stop: Length): LineString {
+    val slice = mutableListOf<Position>()
+    var travelled = Length.Zero
+
+    coordinates.forEachIndexed { i, coordinate ->
+        if (start >= travelled && i == coordinates.size - 1) {
+            // Start is beyond the end of the line
+            return@forEachIndexed
+        } else if (travelled > start && slice.isEmpty()) {
+            // Found the start point - interpolate backwards
+            val overshot = start - travelled
+            if (overshot.isZero) {
+                slice.add(coordinate)
+                return LineString(slice)
+            }
+            val direction = coordinates[i - 1].bearingTo(coordinate)
+            val interpolated = coordinate.offset(overshot, direction)
+            slice.add(interpolated)
+        }
+
+        if (travelled >= stop) {
+            // Found the stop point - interpolate backwards and return
+            val overshot = stop - travelled
+            if (overshot.isZero) {
+                slice.add(coordinate)
+                return LineString(slice)
+            }
+            val direction = coordinates[i - 1].bearingTo(coordinate)
+            val interpolated = coordinate.offset(overshot, direction)
+            slice.add(interpolated)
+            return LineString(slice)
+        }
+
+        if (travelled >= start) {
+            // We're between start and stop, add the coordinate
+            slice.add(coordinate)
+        }
+
+        if (i == coordinates.size - 1) {
+            return LineString(slice)
+        }
+
+        travelled += distance(coordinate, coordinates[i + 1])
+    }
+
+    // If we get here and slice is empty, start is beyond the line
+    if (travelled < start) {
+        throw IllegalArgumentException("Start position is beyond line")
+    }
+
+    return LineString(slice)
+}
+
+@PublishedApi
+@Suppress("unused")
+@JvmOverloads
+internal fun LineString.slice(start: Double, stop: Double, unit: LengthUnit = Meters): LineString =
+    slice(start = start.toLength(unit), stop = stop.toLength(unit))

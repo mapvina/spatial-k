@@ -12,7 +12,7 @@ This will run benchmarks on the JVM, NodeJS, and Kotlin/Native.
 
 These benchmarks measure the time taken to serialize and deserialize a `FeatureCollection`
 containing 15,000 randomly generated features. See
-[GeoJsonBenchmark.kt](geojson/src/commonBench/kotlin/org/mapvina/spatialk/geojson/GeoJsonBenchmark.kt)
+[GeoJsonBenchmark.kt](geojson/src/commonBench/kotlin/io/github/mapvina/spatialk/geojson/GeoJsonBenchmark.kt)
 for details.
 
 ## Results

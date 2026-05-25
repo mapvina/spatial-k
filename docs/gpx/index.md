@@ -5,7 +5,7 @@ The `gpx` module contains data types for the GPS Exchange Format (GPX) version 1
 === "Kotlin"
 
     ```kotlin
-    --8<-- "gpx/src/commonTest/kotlin/org/mapvina/spatialk/gpx/KotlinDocsTest.kt:example"
+    --8<-- "gpx/src/commonTest/kotlin/io/github/mapvina/spatialk/gpx/KotlinDocsTest.kt:example"
     ```
 
 Details can be found in the [API reference](../api/gpx/index.html).
@@ -17,7 +17,7 @@ Details can be found in the [API reference](../api/gpx/index.html).
     ```kotlin
     commonMain {
         dependencies {
-            implementation("com.mapvina.spatialk:gpx:{{ gradle.project_version }}")
+            implementation("io.github.mapvina.spatialk:gpx:{{ gradle.project_version }}")
         }
     }
     ```
@@ -30,5 +30,5 @@ attached as feature properties.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "gpx/src/commonTest/kotlin/org/mapvina/spatialk/gpx/KotlinDocsTest.kt:toGeoJson"
+    --8<-- "gpx/src/commonTest/kotlin/io/github/mapvina/spatialk/gpx/KotlinDocsTest.kt:toGeoJson"
     ```

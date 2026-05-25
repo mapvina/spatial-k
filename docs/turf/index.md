@@ -16,7 +16,7 @@ details on each function are available on the [Turf.js](https://turfjs.org) site
     ```kotlin
     commonMain {
         dependencies {
-            implementation("com.mapvina.spatialk:turf:{{ gradle.project_version }}")
+            implementation("io.github.mapvina.spatialk:turf:{{ gradle.project_version }}")
         }
     }
     ```
@@ -25,7 +25,7 @@ details on each function are available on the [Turf.js](https://turfjs.org) site
 
     ```kotlin
     dependencies {
-        implementation("com.mapvina.spatialk:turf-jvm:{{ gradle.project_version }}")
+        implementation("io.github.mapvina.spatialk:turf-jvm:{{ gradle.project_version }}")
     }
     ```
 
@@ -36,13 +36,13 @@ Turf functions are available as top-level functions in Kotlin and as static meth
 === "Kotlin"
 
     ```kotlin
-    --8<-- "turf/src/commonTest/kotlin/org/mapvina/spatialk/turf/KotlinDocsTest.kt:example"
+    --8<-- "turf/src/commonTest/kotlin/io/github/mapvina/spatialk/turf/KotlinDocsTest.kt:example"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "turf/src/jvmTest/java/org/mapvina/spatialk/turf/JavaDocsTest.java:example"
+    --8<-- "turf/src/jvmTest/java/io/github/mapvina/spatialk/turf/JavaDocsTest.java:example"
     ```
 
 ## Turf Functions

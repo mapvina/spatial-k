@@ -1,0 +1,22 @@
+@file:Suppress("UnusedVariable", "unused")
+
+package io.github.mapvina.spatialk.turf
+
+import kotlin.test.Test
+import io.github.mapvina.spatialk.geojson.Position
+import io.github.mapvina.spatialk.turf.measurement.offset
+import io.github.mapvina.spatialk.units.Bearing
+import io.github.mapvina.spatialk.units.extensions.kilometers
+
+// These snippets are primarily intended to be included in documentation. Though they exist as
+// part of the test suite, they are not intended to be comprehensive tests.
+
+class KotlinDocsTest {
+    @Test
+    fun example() {
+        // --8<-- [start:example]
+        val point = Position(-75.0, 45.0)
+        val (longitude, latitude) = point.offset(100.kilometers, Bearing.North)
+        // --8<-- [end:example]
+    }
+}

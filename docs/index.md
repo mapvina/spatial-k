@@ -33,7 +33,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.mapvina.spatialk:geojson:VERSION-SNAPSHOT")
+    implementation("io.github.mapvina.spatialk:geojson:VERSION-SNAPSHOT")
 }
 ```
 

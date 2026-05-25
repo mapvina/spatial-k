@@ -39,7 +39,7 @@ dokka {
         configureEach {
             includes.from("MODULE.md")
             sourceLink {
-                remoteUrl("https://github.com/mapvina/spatial-k/tree/v${project.version}/")
+                remoteUrl("https://github.io/github/mapvina/spatial-k/tree/v${project.version}/")
                 localDirectory = rootDir
             }
             externalDocumentationLinks {
@@ -62,9 +62,9 @@ mavenPublishing {
         url = "https://mapvina.com/spatial-k/"
 
         scm {
-            url = "https://github.com/mapvina/spatial-k"
-            connection = "scm:git:git://github.com/mapvina/spatial-k.git"
-            developerConnection = "scm:git:git://github.com/mapvina/spatial-k.git"
+            url = "https://github.io/github/mapvina/spatial-k"
+            connection = "scm:git:git://github.io/github/mapvina/spatial-k.git"
+            developerConnection = "scm:git:git://github.io/github/mapvina/spatial-k.git"
         }
 
         licenses {

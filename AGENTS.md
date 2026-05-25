@@ -1,6 +1,6 @@
 ## AI policy
 
-Follow the [MapVina AI policy](https://github.com/mapvina/mapvina/blob/main/AI_POLICY.md). All
+Follow the [MapVina AI policy](https://github.io/github/mapvina/mapvina/blob/main/AI_POLICY.md). All
 AI-generated code must be reviewed by a human before submission. Disclose substantial AI usage in
 pull request descriptions.
 

@@ -12,7 +12,7 @@ See below for constructing GeoJSON objects using the DSL.
     ```kotlin
     commonMain {
         dependencies {
-            implementation("com.mapvina.spatialk:geojson:{{ gradle.project_version }}")
+            implementation("io.github.mapvina.spatialk:geojson:{{ gradle.project_version }}")
         }
     }
     ```
@@ -21,7 +21,7 @@ See below for constructing GeoJSON objects using the DSL.
 
     ```kotlin
     dependencies {
-        implementation("com.mapvina.spatialk:geojson-jvm:{{ gradle.project_version }}")
+        implementation("io.github.mapvina.spatialk:geojson-jvm:{{ gradle.project_version }}")
     }
     ```
 
@@ -39,7 +39,7 @@ allows for exhaustive type checks in Kotlin using a `when` block.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:geometryExhaustiveTypeChecks"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:geometryExhaustiveTypeChecks"
     ```
 
 All seven types of GeoJSON geometries are implemented and summarized below. Full documentation can
@@ -54,19 +54,19 @@ accessible as properties. Coordinates follow the order specified in RFC 7946:
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:positionKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:positionKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:positionJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:positionJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:positionJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:positionJson"
     ```
 
 #### Point
@@ -76,19 +76,19 @@ A Point is a single Position.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:pointKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:pointKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:pointJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:pointJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:pointJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:pointJson"
     ```
 
 #### MultiPoint
@@ -98,19 +98,19 @@ A `MultiPoint` is an array of Positions.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiPointKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiPointKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:multiPointJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:multiPointJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiPointJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiPointJson"
     ```
 
 #### LineString
@@ -120,19 +120,19 @@ A `LineString` is a sequence of two or more Positions.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:lineStringKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:lineStringKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:lineStringJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:lineStringJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:lineStringJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:lineStringJson"
     ```
 
 #### MultiLineString
@@ -142,19 +142,19 @@ A `MultiLineString` is an array of LineStrings.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiLineStringKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiLineStringKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:multiLineStringJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:multiLineStringJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiLineStringJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiLineStringJson"
     ```
 
 #### Polygon
@@ -166,19 +166,19 @@ all the following rings define "holes" inside the polygon.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:polygonKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:polygonKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:polygonJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:polygonJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:polygonJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:polygonJson"
     ```
 
 #### MultiPolygon
@@ -188,19 +188,19 @@ A `MultiPolygon` is an array of Polygons.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiPolygonKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiPolygonKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:multiPolygonJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:multiPolygonJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiPolygonJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:multiPolygonJson"
     ```
 
 #### GeometryCollection
@@ -210,19 +210,19 @@ A `GeometryCollection` contains multiple, heterogeneous geometries.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:geometryCollectionKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:geometryCollectionKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:geometryCollectionJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:geometryCollectionJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:geometryCollectionJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:geometryCollectionJson"
     ```
 
 ### Feature
@@ -238,19 +238,19 @@ accessing properties are available when properties are of type `JsonObject` (see
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:featureKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:featureKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:featureJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:featureJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:featureJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:featureJson"
     ```
 
 ### FeatureCollection
@@ -261,19 +261,19 @@ and can be used in any place that a collection can be used.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:featureCollectionKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:featureCollectionKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:featureCollectionJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:featureCollectionJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:featureCollectionJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:featureCollectionJson"
     ```
 
 ### BoundingBox
@@ -286,19 +286,19 @@ destructuring.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:boundingBoxKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:boundingBoxKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:boundingBoxJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:boundingBoxJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:boundingBoxJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:boundingBoxJson"
     ```
 
 ## Serialization
@@ -310,13 +310,13 @@ Any `GeoJsonObject` can be serialized to a JSON string using the `toJson()` meth
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:serializationToJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:serializationToJson"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:serializationToJsonJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:serializationToJsonJava"
     ```
 
 ### From JSON
@@ -327,17 +327,17 @@ The `fromJson` and `fromJsonOrNull` companion (or static) functions are availabl
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:serializationFromJson1"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:serializationFromJson1"
 
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:serializationFromJson2"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:serializationFromJson2"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:serializationFromJsonJava1"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:serializationFromJsonJava1"
 
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:serializationFromJsonJava2"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:serializationFromJsonJava2"
     ```
 
 Like with encoding, Spatial-K objects can also be decoded using `kotlinx.serialization` using the
@@ -346,7 +346,7 @@ Like with encoding, Spatial-K objects can also be decoded using `kotlinx.seriali
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:kotlinxSerialization"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:kotlinxSerialization"
     ```
 
 ## GeoJSON Builders
@@ -367,19 +367,19 @@ The `MultiPoint` builder uses `add()` to add positions or `Point` geometries.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiPointKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiPointKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:dslMultiPointJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:dslMultiPointJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiPointJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiPointJson"
     ```
 
 #### LineString
@@ -390,19 +390,19 @@ The order in which positions are added is the order that the line will follow.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslLineStringKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslLineStringKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:dslLineStringJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:dslLineStringJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslLineStringJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslLineStringJson"
     ```
 
 #### MultiLineString
@@ -413,19 +413,19 @@ add existing `LineString` objects.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiLineStringKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiLineStringKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:dslMultiLineStringJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:dslMultiLineStringJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiLineStringJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiLineStringJson"
     ```
 
 #### Polygon
@@ -438,19 +438,19 @@ interior rings (i.e., holes) in the polygon.
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslPolygonKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslPolygonKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:dslPolygonJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:dslPolygonJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslPolygonJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslPolygonJson"
     ```
 
 #### MultiPolygon
@@ -461,19 +461,19 @@ The `MultiPolygon` builder uses `addPolygon()` to define polygons inline, or `ad
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiPolygonKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiPolygonKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:dslMultiPolygonJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:dslMultiPolygonJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiPolygonJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslMultiPolygonJson"
     ```
 
 #### GeometryCollection
@@ -485,19 +485,19 @@ define geometries inline (Kotlin only), or `add()` to add existing geometry obje
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslGeometryCollectionKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslGeometryCollectionKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:dslGeometryCollectionJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:dslGeometryCollectionJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslGeometryCollectionJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslGeometryCollectionJson"
     ```
 
 ### Feature
@@ -509,19 +509,19 @@ properties. Properties can be any serializable object, such as a `JsonObject` bu
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslFeatureKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslFeatureKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:dslFeatureJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:dslFeatureJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslFeatureJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslFeatureJson"
     ```
 
 ### FeatureCollection
@@ -532,17 +532,17 @@ The `FeatureCollection` builder uses `addFeature()` to define features inline (K
 === "Kotlin"
 
     ```kotlin
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslFeatureCollectionKt"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslFeatureCollectionKt"
     ```
 
 === "Java"
 
     ```java
-    --8<-- "geojson/src/jvmTest/java/org/mapvina/spatialk/geojson/JavaDocsTest.java:dslFeatureCollectionJava"
+    --8<-- "geojson/src/jvmTest/java/io/github/mapvina/spatialk/geojson/JavaDocsTest.java:dslFeatureCollectionJava"
     ```
 
 === "JSON"
 
     ```json
-    --8<-- "geojson/src/commonTest/kotlin/org/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslFeatureCollectionJson"
+    --8<-- "geojson/src/commonTest/kotlin/io/github/mapvina/spatialk/geojson/KotlinDocsTest.kt:dslFeatureCollectionJson"
     ```

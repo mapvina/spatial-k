@@ -3,17 +3,17 @@
 ## AI policy
 
 This project follows the
-[MapVina AI policy](https://github.com/mapvina/mapvina/blob/main/AI_POLICY.md). Contributors must
+[MapVina AI policy](https://github.io/github/mapvina/mapvina/blob/main/AI_POLICY.md). Contributors must
 review all AI-generated code before submitting and disclose substantial AI usage in pull requests.
 
 ## Find or file an issue to work on
 
 If you're looking to add a feature or fix a bug and there's no issue filed yet,
-[file an issue](https://github.com/mapvina/spatial-k/issues/new/choose) first to discuss the change
+[file an issue](https://github.io/github/mapvina/spatial-k/issues/new/choose) first to discuss the change
 before you start working on it.
 
 If you're new and looking for things to contribute, see our
-[good first issue](https://github.com/mapvina/spatial-k/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
+[good first issue](https://github.io/github/mapvina/spatial-k/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22good%20first%20issue%22)
 label.
 
 ## Set up your development environment
