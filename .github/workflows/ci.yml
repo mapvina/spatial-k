@@ -29,7 +29,7 @@ jobs:
                   fetch-depth: 0
                   fetch-tags: true
                   persist-credentials: false
-            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
             - run: ./gradlew version # TODO: remove this once we're confident in our config
             - run: ./gradlew ${{ matrix.task }}
             - if: ${{ matrix.task == 'build' }} # Kover only supports JVM
@@ -46,7 +46,7 @@ jobs:
                   fetch-depth: 0
                   fetch-tags: true
                   persist-credentials: false
-            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
             - name: Run benchmark
               run: |
                   echo '## Benchmark' >> $GITHUB_STEP_SUMMARY
@@ -60,7 +60,7 @@ jobs:
                   fetch-depth: 0
                   fetch-tags: true
                   persist-credentials: false
-            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
             - run: ./gradlew :mkdocsBuild
             - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
               with:
@@ -74,7 +74,7 @@ jobs:
                   fetch-depth: 0
                   fetch-tags: true
                   persist-credentials: false
-            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
             - run: mise run check
 
     check-integrity:
@@ -85,7 +85,7 @@ jobs:
                   fetch-depth: 0
                   fetch-tags: true
                   persist-credentials: false
-            - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+            - uses: jdx/mise-action@dba19683ed58901619b14f395a24841710cb4925 # v4.1.0
             - name: Verify gradle wrapper
               run: |
                   GRADLE_VERSION=$(grep distributionUrl gradle/wrapper/gradle-wrapper.properties \
